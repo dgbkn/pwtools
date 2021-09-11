@@ -56,11 +56,21 @@
 
 
       for (var i in obj["data"]) {
-        var iuri = i?.videoURL + i?.link + i?.key;
+        if(!typeof i.url == undefined){
+          var iuri = i.url;
+          var t= i["topic"];
+        }else{
+          var t= i["homeworkIds"]["topic"];
+          var chunk = i["homeworkIds"]["attachmentIds"];
+
+          var iuri = chunk["baseUrl"] + chunk["key"];
+
+        }
+
 
         res = res + `
            <tr>
-    <td>${i['name']}</td>
+    <td>${t}</td>
     <td>${iuri}</td>
     <td><button data-clipboard-text="${iuri}">copy it </button></td>
         </tr>
