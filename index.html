@@ -43,10 +43,10 @@ var maintable = document.getElementById("maintable")
 
 maintable.innerHTML= res;
 
-if(document.getElementById("pdf").value=""){
+if(typeof document.getElementById("pdf").value == undefined || document.getElementById("pdf").value==""){
 var arr = document.getElementById("videores");
 }
-if(document.getElementById("videores").value=""){
+if(typeof document.getElementById("videores").value == undefined || document.getElementById("videores").value=""){
 var arr = document.getElementById("pdf");
 }
       var obj = JSON.parse(arr.value); 
