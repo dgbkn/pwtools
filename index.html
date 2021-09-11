@@ -29,8 +29,45 @@
 
 <script>
     function doo(){
-     var arr = document.getElementById("pdf");
 
+var res = `
+  <tr>
+    <th>name</th>
+    <th>url</th>
+    <th>action</th>
+  </tr>
+            `; 
+
+var maintable = document.getElementById("maintable")
+
+maintable.innerHTML= res;
+
+if(document.getElementById("pdf").value=""){
+var arr = document.getElementById("videores");
+}
+if(document.getElementById("videores").value=""){
+var arr = document.getElementById("pdf");
+}
+      var obj = JSON.parse(arr.value); 
+
+            
+              
+            for(var i in obj["data"]){
+var iuri=i?.videoURL+i?.link+i?.key;
+
+                res = res + `
+           <tr>
+    <td>`+i['name']+`</td>
+    <td>`+iuri+`</td>
+    <td><button onclick="copy('${iuri}')">copy it </button></td>
+        </tr>
+                `;
+             }
+
+
+maintable.innerHTML= res;
+
+              
     }
     
     document.getElementById("videores").focus();
