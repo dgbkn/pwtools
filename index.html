@@ -60,8 +60,8 @@
           var iuri = i.url;
           var t= i["topic"];
         }else{
-          var t= i["homeworkIds"]["topic"];
-          var chunk = i["homeworkIds"]["attachmentIds"];
+          var t= i["homeworkIds"][0]["topic"];
+          var chunk = i["homeworkIds"][0]["attachmentIds"];
 
           var iuri = chunk["baseUrl"] + chunk["key"];
 
