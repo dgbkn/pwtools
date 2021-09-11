@@ -60,7 +60,7 @@ var iuri=i?.videoURL+i?.link+i?.key;
            <tr>
     <td>`+i['name']+`</td>
     <td>`+iuri+`</td>
-    <td><button onclick="copy('${iuri}')">copy it </button></td>
+    <td><button data-clipboard-text="${iuri}">copy it </button></td>
         </tr>
                 `;
              }
