@@ -1,79 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pw tool</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pw tool</title>
 </head>
+
 <body>
 
-    enter the pdf json response
-    <input type="text" id="pdf" onchange="doo()">
+  enter the pdf json response
+  <input type="text" id="pdf" onchange="doo()">
 
-<br>
-    enter video response
-        <input type="text" id="videores" onchange="doo()">
-<br>
- <button type="button" onclick="doo()">Calculate</button>
-<button type="button" onclick="cls()">Clear</button>
-<br>
- <table id="maintable">
+  <br>
+  enter video response
+  <input type="text" id="videores" onchange="doo()">
+  <br>
+  <button type="button" onclick="doo()">Calculate</button>
+  <button type="button" onclick="cls()">Clear</button>
+  <br>
+  <table id="maintable">
+    <tr>
+      <th>name</th>
+      <th>url</th>
+      <th>action</th>
+    </tr>
+
+  </table>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+  <script>
+    function doo() {
+
+      var res = `
   <tr>
     <th>name</th>
     <th>url</th>
     <th>action</th>
   </tr>
-  
-</table>
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+            `;
 
-<script>
-    function doo(){
+      var maintable = document.getElementById("maintable")
 
-var res = `
-  <tr>
-    <th>name</th>
-    <th>url</th>
-    <th>action</th>
-  </tr>
-            `; 
+      maintable.innerHTML = res;
 
-var maintable = document.getElementById("maintable")
+      if (typeof document.getElementById("pdf").value == undefined || document.getElementById("pdf").value == "") {
+        var arr = document.getElementById("videores");
+      }
+      if (typeof document.getElementById("videores").value == undefined || document.getElementById("videores").value=="") {
+        var arr = document.getElementById("pdf");
+      }
+      var obj = JSON.parse(arr.value);
 
-maintable.innerHTML= res;
 
-if(typeof document.getElementById("pdf").value == undefined || document.getElementById("pdf").value==""){
-var arr = document.getElementById("videores");
-}
-if(typeof document.getElementById("videores").value == undefined || document.getElementById("videores").value=""){
-var arr = document.getElementById("pdf");
-}
-      var obj = JSON.parse(arr.value); 
 
-            
-              
-            for(var i in obj["data"]){
-var iuri=i?.videoURL+i?.link+i?.key;
+      for (var i in obj["data"]) {
+        var iuri = i?.videoURL + i?.link + i?.key;
 
-                res = res + `
+        res = res + `
            <tr>
     <td>${i['name']}</td>
     <td>${iuri}</td>
     <td><button data-clipboard-text="${iuri}">copy it </button></td>
         </tr>
                 `;
-             }
+      }
 
 
-maintable.innerHTML= res;
+      maintable.innerHTML = res;
 
-              
+
     }
-    
+
     document.getElementById("videores").focus();
-</script>
+  </script>
 
 
 </body>
+
 </html>
