@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Login Form</title>
+  <title>Link Form</title>
   <style>
     label {
       font-weight: bold;
@@ -144,7 +144,7 @@
   <canvas id="world" width="366" height="626"></canvas></div>
 
 <body>
-  <form action="" class="login-form" method="POST">
+  <form action="" class="login-form" method="POST" onsubmit="return mySubmitFunction(event)">
     <h1>PW LINK GENERATOR</h1>
     <div class="txtb">
       <input type="text" name="og" id="og" onchange="doo()" onforminput="doo()" oninput="doo()">
@@ -169,6 +169,12 @@
 
   <script type="text/javascript">
     
+	  function mySubmitFunction(e) {
+  e.preventDefault();
+  return false;
+}
+	  
+	  
         function doo() {
         var link = document.getElementById("og").value;
         var net = "https://phpstreamer.tanishagoyal.repl.co/multim3u8.php?url=" + link;
