@@ -408,7 +408,7 @@ document.getElementById("thefinalsrc").src = cc;
                     base64ToHex(request.kids[0])
                   );
 
-                  const t = makeRequest("GET", "/auth.php?key=" + key).then((res) => {
+                  const t = makeRequest("GET", "https://study.physicswallah.workers.dev/drmKeyProvider?key=" + key).then((res) => {
 
 
                     console.log(res.responseText,"res");
