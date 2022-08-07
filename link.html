@@ -179,8 +179,9 @@
         var link = document.getElementById("og").value;
 //         var net = "https://phpstreamer.tanishagoyal.repl.co/multim3u8.php?url=" + link;
         var net = "https://study.physicswallah.workers.dev/pwmultim3u8?url=" + link;
-		
-        var net1 = "https://phpstreamer.herokuapp.com/pw/multim3u8.php?url=" + link;
+		 var el = document.createElement('a');
+el.href = link;
+        var net1 = "https://d26g5bnklkwsh4.cloudfront.net/" + el.pathname;
         //net = net.replace("?dl=0", "");
 
         document.getElementById("goo").value = net;
