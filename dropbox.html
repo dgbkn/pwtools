@@ -115,13 +115,12 @@
 
         var net = i.href.replace("www.dropbox.com", "dl.dropboxusercontent.com");
         net = net.replace("?dl=0", "");
-        var iurl = net;
 
         res = res + `
-           <tr onclick="copyTextToClipboard('${iuri}')">
+           <tr onclick="copyTextToClipboard('${net}')">
     <td>${filename}</td>
-    <td>${iuri}</td>
-    <td><button onclick="copyTextToClipboard('${iuri}')">copy it </button></td>
+    <td>${net}</td>
+    <td><button onclick="copyTextToClipboard('${net}')">copy it </button></td>
         </tr>
                 `;
 
